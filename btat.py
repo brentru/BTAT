@@ -22,6 +22,7 @@ VERSION
     $Id$
 """
 import csv
+import subprocess
 from optparse import OptionParser
 
 vendorList = []
@@ -39,7 +40,11 @@ def csvParser(dbgMode):
             btaddrList.append(row[1])
     print 'Bluetooth Addresses Scraped: \n', btaddrList
     print '\nVendors Enumerated: \n', vendorList
-    
+
+def payloadDropper(btaddrList, vendorList):
+    for i in range(btaddrList):
+        subprocess.call("payload.py TARGET=", btaddrlist[i])
+
 
 def main():
     parser = OptionParser(usage="usage %prog [options]",
