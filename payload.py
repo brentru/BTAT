@@ -6,11 +6,11 @@
 from pwn import *
 import bluetooth
 
-if not '-t' in args:
-    log.info("Usage: CVE-2017-0785.py TARGET=XX:XX:XX:XX:XX:XX")
+if not 'TARGET' in args:
+    log.info("Usage: payload.py TARGET=XX:XX:XX:XX:XX:XX")
     exit()
 
-target = args['-t']
+target = args['TARGET']
 service_long = 0x0100
 service_short = 0x0001
 mtu = 50
@@ -70,3 +70,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
